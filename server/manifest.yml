@@ -1,11 +1,11 @@
   applications:
-  - name: djangoapp
+  - name: dealmarket
     routes:
-      - route: $HOST.$DOMAIN
+      - route: dylanebang1.eu-gb.cf.appdomain.cloud
     memory: 128M
     buildpack: python_buildpack
-  - name: djangoapp-nginx
+  - name: dealmarket-nginx
     routes:
-      - route: $HOST.$DOMAIN/static
+      - route: dylanebang1.eu-gb.cf.appdomain.cloud/static
     memory: 128M
     buildpack: staticfile_buildpack
