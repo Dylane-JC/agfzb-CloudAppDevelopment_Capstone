@@ -45,7 +45,7 @@
                         </div>
                         <div>
                             <button class="btn btn-outline-primary" type="submit">Login</button>
-                            <a href="#" class="link-primary">Sign up</a>
+                            <a href="signup" class="link-primary">Sign up</a>
                         </div>
                     </div>
                 </form>
@@ -56,23 +56,23 @@
     <section class="container-fluid">
         <div class="row">
             <h2 style="margin:auto">Get signed in</h2>
-            <form class="form-control" action=""
-                style="width: 40%; height:auto; margin:auto; margin-top:10%; border:none; border: 2px solid #68abdb; padding: 60px; border-radius:20px">
+            <form class="form-control" action="{% url 'djangoapp:signup' %}" method = "POST" style="width: 40%; height:auto; margin:auto; margin-top:10%; border:none; border: 2px solid #68abdb; padding: 60px; border-radius:20px">
+                {% csrf_token %}
                 <div class="input-group input-group mb-2">
                     <span class="input-group-text" id="inputGroup-sizing-sm">First name</span>
-                    <input type="text" class="form-control" aria-label="" aria-describedby="">
+                    <input type="text" name = "first_name" class="form-control" aria-label="" aria-describedby="">
                 </div>
                 <div class="input-group input-group mb-2">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Last name</span>
-                    <input type="text" class="form-control" aria-label="" aria-describedby="">
+                    <input type="text" name = "last_name" class="form-control" aria-label="" aria-describedby="">
                 </div>
                 <div class="input-group input-group mb-2">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Username</span>
-                    <input type="text" class="form-control" aria-label="" aria-describedby="">
+                    <input type="text" name = "username" class="form-control" aria-label="" aria-describedby="">
                 </div>
                 <div class="input-group input-group mb-2">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">Last name</span>
-                    <input type="password" class="form-control" aria-label="" aria-describedby="">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Password</span>
+                    <input type="password" name = "password" class="form-control" aria-label="" aria-describedby="">
                 </div>
                 <input class="btn btn-primary btn-sm" value="Get registered" type="submit" style="background:#68abdb">
             </form>

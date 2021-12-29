@@ -67,7 +67,34 @@ def logout_request(request):
 # Create a `registration_request` view to handle sign up request
 def registration_request(request):
     context = {}
-    
+    # If it is just a GET request :
+    if request.method == "GET":
+        return render(request, 'djangoapp/signup.html', context)
+    # If request comes from variable (a POST request:)
+    elif request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        lastname = request.POST['last_name']
+        firstname = request.POST['first_name']
+        user_exist = False
+        try:
+            #Verify if user already registered
+            User.objects.get(username=username)
+            user_exist = True
+        except:
+            # If not already exist, write it is a new user
+            logger.debug("{} is a new user".format(username))
+        # IF not exists
+        if not user_exist:
+            #we create the new user in the db user table
+            user = User.objects.create_user(username=username, first_name=firstname, last_name=lastname, password=password)
+            #We log the user in
+            login(request, user)
+            return redirect('djangoapp:index')
+        else:
+            return render(request, 'djangoapp/signup.html', context)
+
+
 
 
 

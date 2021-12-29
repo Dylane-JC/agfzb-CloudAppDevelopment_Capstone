@@ -74,7 +74,7 @@
                         </div>
                         <div>
                             <input class="btn btn-outline-primary" value = "Login" type="submit">
-                            <a href="{{ url 'djangoapp:signup' }}" class="link-primary">Sign up</a>
+                            <a href="{% url 'djangoapp:signup' %}" class="link-primary">Sign up</a>
                         </div>
                     </div>
                 </form>
@@ -140,8 +140,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="clo-md-4">
-
+            <div class="col-md-4">
+                <img src="{{ MEDIA_URL }}/car.svg" alt="car">
             </div>
         </div>
     </div>
