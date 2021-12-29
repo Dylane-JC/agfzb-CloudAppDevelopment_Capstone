@@ -24,8 +24,7 @@
             <div class="row">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:green">Welcome {{ user.first_name}} {{ user.last_name
-                            }} !</a>
+                        <a class="nav-link" href="#" style="color:green">Welcome {{ user.first_name}} {{ user.last_name}} !</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" style="background : #68abdb; color:#FFFFFF; border-radius :50px;"
@@ -62,20 +61,20 @@
                         <a class="nav-link" href="contact">Contact us</a>
                     </li>
                 </ul>
-                <form class="d-flex">
+                <form action = "{% url 'djangoapp:login' %}" method = "POST" class="d-flex">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col">
-                            <input class="form-control me-2" type="text" placeholder="Username" aria-label="Username"
-                                style="margin-left:20px">
+                            <input name = "username" class="form-control me-2" type="text" placeholder="Username" aria-label="Username"
+                                style="margin-left:20px" required>
                         </div>
                         <div class="col">
-                            <input class="form-control me-2" type="password" placeholder="Password"
-                                aria-label="Password">
+                            <input name = "password" class="form-control me-2" type="password" placeholder="Password"
+                                aria-label="Password" required>
                         </div>
                         <div>
-                            <a href="{% url 'djangoapp:login' %}" class="btn btn-outline-primary"
-                                type="submit">Login</a>
-                            <a href="signup" class="link-primary">Sign up</a>
+                            <input class="btn btn-outline-primary" value = "Login" type="submit">
+                            <a href="{{ url 'djangoapp:signup' }}" class="link-primary">Sign up</a>
                         </div>
                     </div>
                 </form>

@@ -39,19 +39,19 @@ def login_request(request):
     if request.method == "POST":
         # Colect user informations
         username = request.POST['username']
-        password = request.POST['passwd']
+        password = request.POST['password']
 
         # We verify the credentials match to the one recorded in the database
         user = authenticate(username=username, password=password)
         if user is not None:
             # If the credentials are recognized we call the 'login method to login the current user
             login(request, user)
-            return redirect('djangoapp:get_dealership')
+            return redirect('djangoapp:index')
         else:
             #If the user cannot be verified, run the login page again
-            return render('djangoapp/login.html', context)
+            return render(request, 'djangoapp/login.html', context)
     else:
-        return render('djangoapp/login.html', context)
+        return render(request, 'djangoapp/login.html', context)
 
 
 # Create a `logout_request` view to handle sign out request
@@ -65,7 +65,9 @@ def logout_request(request):
 
 
 # Create a `registration_request` view to handle sign up request
-#def registration_request(request):
+def registration_request(request):
+    context = {}
+    
 
 
 
