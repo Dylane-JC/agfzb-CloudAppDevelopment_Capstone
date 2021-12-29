@@ -18,40 +18,83 @@
 </head>
 
 <body>
+    {% if user.is_authenticated %}
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Dealership Reviews</a>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/djangoapp">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style = "background : #68abdb; color:#FFFFFF; border-radius :50px;" aria-current="page" href="about">About us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href = "contact">Contact us</a>
-                </li>
-            </ul>
-            <!--<form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>-->
+            <div class="row">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:green">Welcome {{ user.first_name}} {{ user.last_name
+                            }} !</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/djangoapp">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="background : #68abdb; color:#FFFFFF; border-radius :50px;"
+                            aria-current="page" href="about">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:red">Sign out</a>
+                    </li>
+                </ul>
+            </div>
         </div>
         </div>
     </nav>
+    {% else %}
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Dealership Reviews</a>
+            <div class="row">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/djangoapp">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="background : #68abdb; color:#FFFFFF; border-radius :50px;"
+                            aria-current="page" href="about">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">Contact us</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <div class="row">
+                        <div class="col">
+                            <input class="form-control me-2" type="text" placeholder="Username" aria-label="Username"
+                                style="margin-left:20px">
+                        </div>
+                        <div class="col">
+                            <input class="form-control me-2" type="password" placeholder="Password"
+                                aria-label="Password">
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-primary" type="submit">Login</button>
+                            <a href="#" class="link-primary">Sign up</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </nav>
+    {% endif %}
     <div class="container-fluid"><br><br>
         <h2>About us</h2>
         <div class="row"><br><br>
-            <div class = "col-md-6" style = "margin-top: 10px;">
+            <div class="col-md-6" style="margin-top: 10px;">
                 <samp>
-                    Welcome to Best Cars dealership, home to the best cars in North America. We sell domestic and imported cars at
-                    reasonable prices.                    
+                    Welcome to Best Cars dealership, home to the best cars in North America. We sell domestic and
+                    imported cars at
+                    reasonable prices.
                 </samp>
             </div>
-            <div class = "col-md-5">
+            <div class="col-md-5">
                 <img src="{{MEDIA_URL}}/book.svg" alt="">
             </div>
         </div>

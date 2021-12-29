@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact us</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -18,35 +18,6 @@
 </head>
 
 <body>
-    {% if user.is_authenticated %}
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Dealership Reviews</a>
-            <div class="row">
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:green">Welcome {{ user.first_name}} {{ user.last_name
-                            }} !</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/djangoapp">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="background : #68abdb; color:#FFFFFF; border-radius :50px;"
-                            aria-current="page" href="contact">Contact us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:red">Sign out</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        </div>
-    </nav>
-    {% else %}
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Dealership Reviews</a>
@@ -59,8 +30,7 @@
                         <a class="nav-link" href="about">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="background : #68abdb; color:#FFFFFF; border-radius :50px;"
-                            aria-current="page" href="contact">Contact us</a>
+                        <a class="nav-link" href="contact">Contact us</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -83,21 +53,31 @@
         </div>
         </div>
     </nav>
-    {% endif %}
-
-    <div class="container-fluid"> <br><br>
-        <h2>Contact us</h2>
-        <div class="row"><br><br>
-            <div class="col-md-6" style="margin-top: 10px;">
-                <samp>Address: 100 Boulevard de Felix Faure 93300</samp><br>
-                <samp>Tel.: +33 00 00 00 00</samp><br>
-                <samp>E-mail: username@domain.com</samp>
-            </div>
-            <div class="col-md-4">
-                <img src="{{ MEDIA_URL }}/globe.png" alt="">
-            </div>
+    <section class="container-fluid">
+        <div class="row">
+            <h2 style="margin:auto">Get signed in</h2>
+            <form class="form-control" action=""
+                style="width: 40%; height:auto; margin:auto; margin-top:10%; border:none; border: 2px solid #68abdb; padding: 60px; border-radius:20px">
+                <div class="input-group input-group mb-2">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">First name</span>
+                    <input type="text" class="form-control" aria-label="" aria-describedby="">
+                </div>
+                <div class="input-group input-group mb-2">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Last name</span>
+                    <input type="text" class="form-control" aria-label="" aria-describedby="">
+                </div>
+                <div class="input-group input-group mb-2">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Username</span>
+                    <input type="text" class="form-control" aria-label="" aria-describedby="">
+                </div>
+                <div class="input-group input-group mb-2">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Last name</span>
+                    <input type="password" class="form-control" aria-label="" aria-describedby="">
+                </div>
+                <input class="btn btn-primary btn-sm" value="Get registered" type="submit" style="background:#68abdb">
+            </form>
         </div>
-    </div>
+    </section>
 </body>
 
 </html>

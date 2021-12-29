@@ -17,88 +17,131 @@
 
 <body>
     <!--Add a nav bar here -->
-
+    {% if user.is_authenticated %}
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Dealership Reviews</a>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link active" style = "background : #68abdb; color:#FFFFFF; border-radius :50px;" aria-current="page" href="">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about">About us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact">Contact us</a>
-                </li>
-            </ul>
-            <!--<form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>-->
+            <div class="row">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color:green">Welcome {{ user.first_name}} {{ user.last_name
+                            }} !</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" style="background : #68abdb; color:#FFFFFF; border-radius :50px;"
+                            aria-current="page" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'djangoapp:logout' %}" style="color:red">Sign out</a>
+                    </li>
+                </ul>
+            </div>
         </div>
         </div>
     </nav>
+    {% else %}
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Dealership Reviews</a>
+            <div class="row">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" style="background : #68abdb; color:#FFFFFF; border-radius :50px;"
+                            aria-current="page" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">Contact us</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <div class="row">
+                        <div class="col">
+                            <input class="form-control me-2" type="text" placeholder="Username" aria-label="Username"
+                                style="margin-left:20px">
+                        </div>
+                        <div class="col">
+                            <input class="form-control me-2" type="password" placeholder="Password"
+                                aria-label="Password">
+                        </div>
+                        <div>
+                            <a href="{% url 'djangoapp:login' %}" class="btn btn-outline-primary"
+                                type="submit">Login</a>
+                            <a href="signup" class="link-primary">Sign up</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </nav>
+    {% endif %}
+
     <!--Add a dealer table here -->
     <div class="container-fluid"><br><br>
         <h2>Dealer table</h2>
         <div class="row"><br><br>
-            <div class = "col-md-6">
-                    <table class="table">
-                        <thead class="table-dark">
-                            <td></td>
-                            <td>Mercedes Benz</td>
-                            <td>Rav 4</td>
-                            <td>GMC</td>
-                            <td>BMV X6</td>
-                            <td>Dodge</td>
-                        </thead>
-                        <tbody>
-                            <td>Samy</td>
-                            <td>10 000 EUR</td>
-                            <td>15 300 EUR</td>
-                            <td>20 000 EUR</td>
-                            <td>16 500 EUR</td>
-                            <td>17 500 EUR</td>
-                        </tbody>
-                        <tbody>
-                            <td>Scofield</td>
-                            <td>9 500 EUR</td>
-                            <td>14 700 EUR</td>
-                            <td>12 000 EUR</td>
-                            <td>18 200 EUR</td>
-                            <td>7 800 EUR</td>
-                        </tbody>
-                        <tbody>
-                            <td>Lincoln</td>
-                            <td>40 000 EUR</td>
-                            <td>34 000 EUR</td>
-                            <td>23 000 EUR</td>
-                            <td>10 000 EUR</td>
-                            <td>34 000 EUR</td>
-                        </tbody>
-                        <tbody>
-                            <td>Sucre</td>
-                            <td>22 000 EUR</td>
-                            <td>10 100 EUR</td>
-                            <td>13 000 EUR</td>
-                            <td>24 000 EUR</td>
-                            <td>13 000 EUR</td>
-                        </tbody>
-                        <tbody>
-                            <td>T-Bag</td>
-                            <td>25 000 EUR</td>
-                            <td>24 000 EUR</td>
-                            <td>16 400 EUR</td>
-                            <td>23 000 EUR</td>
-                            <td>27 000 EUR</td>
-                        </tbody>
-                    </table>
+            <div class="col-md-6">
+                <table class="table">
+                    <thead class="table-dark">
+                        <td></td>
+                        <td>Mercedes Benz</td>
+                        <td>Rav 4</td>
+                        <td>GMC</td>
+                        <td>BMV X6</td>
+                        <td>Dodge</td>
+                    </thead>
+                    <tbody>
+                        <td>Samy</td>
+                        <td>10 000 EUR</td>
+                        <td>15 300 EUR</td>
+                        <td>20 000 EUR</td>
+                        <td>16 500 EUR</td>
+                        <td>17 500 EUR</td>
+                    </tbody>
+                    <tbody>
+                        <td>Scofield</td>
+                        <td>9 500 EUR</td>
+                        <td>14 700 EUR</td>
+                        <td>12 000 EUR</td>
+                        <td>18 200 EUR</td>
+                        <td>7 800 EUR</td>
+                    </tbody>
+                    <tbody>
+                        <td>Lincoln</td>
+                        <td>40 000 EUR</td>
+                        <td>34 000 EUR</td>
+                        <td>23 000 EUR</td>
+                        <td>10 000 EUR</td>
+                        <td>34 000 EUR</td>
+                    </tbody>
+                    <tbody>
+                        <td>Sucre</td>
+                        <td>22 000 EUR</td>
+                        <td>10 100 EUR</td>
+                        <td>13 000 EUR</td>
+                        <td>24 000 EUR</td>
+                        <td>13 000 EUR</td>
+                    </tbody>
+                    <tbody>
+                        <td>T-Bag</td>
+                        <td>25 000 EUR</td>
+                        <td>24 000 EUR</td>
+                        <td>16 400 EUR</td>
+                        <td>23 000 EUR</td>
+                        <td>27 000 EUR</td>
+                    </tbody>
+                </table>
             </div>
-            <div class = "clo-md-4">
+            <div class="clo-md-4">
 
             </div>
         </div>

@@ -33,16 +33,42 @@ def contact(request):
         return render(request, 'djangoapp/contact.html', context)
 
 # Create a `login_request` view to handle sign in request
-# def login_request(request):
-# ...
+def login_request(request):
+    context = {}
+    # handling POST request
+    if request.method == "POST":
+        # Colect user informations
+        username = request.POST['username']
+        password = request.POST['passwd']
+
+        # We verify the credentials match to the one recorded in the database
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            # If the credentials are recognized we call the 'login method to login the current user
+            login(request, user)
+            return redirect('djangoapp:get_dealership')
+        else:
+            #If the user cannot be verified, run the login page again
+            return render('djangoapp/login.html', context)
+    else:
+        return render('djangoapp/login.html', context)
+
 
 # Create a `logout_request` view to handle sign out request
-# def logout_request(request):
-# ...
+def logout_request(request):
+    context = {}
+    # We get the user information about his session
+    print("Loggin out of the user {}".format(request.user.username))
+    # We log out the user and redirect him towarad the home page
+    logout(request)
+    return redirect('djangoapp:index')
+
 
 # Create a `registration_request` view to handle sign up request
-# def registration_request(request):
-# ...
+#def registration_request(request):
+
+
+
 
 # Update the `get_dealerships` view to render the index page with a list of dealerships
 def get_dealerships(request):
