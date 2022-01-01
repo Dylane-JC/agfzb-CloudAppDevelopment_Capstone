@@ -14,7 +14,7 @@
  
      try {
          let dbList = await cloudant.db.list();
-         return { "dbs": dbList };
+         return { "db": dbList };
      } catch (error) {
          return { error: error.description };
      }
