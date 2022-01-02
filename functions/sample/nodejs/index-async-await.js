@@ -13,8 +13,8 @@
  
  
      try {
-         let dbList = await cloudant.db.list();
-         return { "db": dbList };
+         let dbList = await cloudant.db.use('dealerships');
+         return { "dbs": dbList };
      } catch (error) {
          return { error: error.description };
      }
