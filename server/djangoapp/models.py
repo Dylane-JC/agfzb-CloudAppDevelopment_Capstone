@@ -1,15 +1,19 @@
 from django.db import models
 from django.utils.timezone import now
 
-
 # Create your models here.
 
 # <HINT> Create a Car Make model `class CarMake(models.Model)`:
+class CarMake(models.Model):
 # - Name
+    name = models.CharField(max_length=25)
 # - Description
+    description = models.CharField(max_length=25)
 # - Any other fields you would like to include in car make model
+    year_of_pub = models.DateField(max_length=6)
 # - __str__ method to print a car make object
-
+    def __str__(self):
+        print("This car is {}".format(self.name))
 
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 # - Many-To-One relationship to Car Make model (One Car Make has many Car Models, using ForeignKey field)
