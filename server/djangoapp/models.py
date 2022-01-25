@@ -14,7 +14,7 @@ class CarMake(models.Model):
     color = models.CharField(max_length=25)
 # - __str__ method to print a car make object
     def __str__(self):
-        print("This car is {}".format(self.name))
+        return self.name
 
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 # - Many-To-One relationship to Car Make model (One Car Make has many Car Models, using ForeignKey field)
@@ -38,7 +38,7 @@ class CarModel(models.Model):
     seler = models.CharField(max_length=25)
 # - __str__ method to print a car make object
     def __str__(self):
-        print ("{}".format(self.name))
+        return self.name
 
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
