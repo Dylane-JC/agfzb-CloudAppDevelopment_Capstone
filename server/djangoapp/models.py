@@ -5,6 +5,7 @@ from django.utils.timezone import now
 
 # <HINT> Create a Car Make model `class CarMake(models.Model)`:
 class CarMake(models.Model):
+    ids = models.AutoField(primary_key=True)
 # - Name
     name = models.CharField(max_length=25)
 # - Description
@@ -19,6 +20,7 @@ class CarMake(models.Model):
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 # - Many-To-One relationship to Car Make model (One Car Make has many Car Models, using ForeignKey field)
 class CarModel(models.Model):
+    ids = models.AutoField(primary_key=True)
 # - Name
     name = models.CharField(max_length=25)
 # Foreign key
@@ -31,7 +33,7 @@ class CarModel(models.Model):
         (2, ('SUV')), 
         (3, ('WAGON'))
         ]
-    types = models.CharField(choices=list_choice, max_length=30)
+    types = models.CharField(max_length=30, null=True)
 # - Year (DateField)
     year = models.DateField()
 # - Any other fields you would like to include in car model
