@@ -112,5 +112,11 @@ def get_dealer_details(request, dealer_id):
     context = {}
     if request.method == "GET":
         url = ""
+        # Get reviews of a dealer
+        reviews = get_dealers_from_cf(url)
+        # Concat all reviews
+        review_ = ' '.join([review.name for review in reviews])
+        # Return a list of reviews
+        return HttpsResponse(review)
 
 
