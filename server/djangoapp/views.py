@@ -111,7 +111,7 @@ def get_dealerships(request):
 def get_dealer_details(request, dealer_id):
     context = {}
     if request.method == "GET":
-        url = ""
+        url = "https://eu-gb.functions.appdomain.cloud/api/v1/web/f685b25d-91a6-498c-833b-cab9cc0a36d0/api/review"
         # Get reviews of a dealer
         reviews = get_dealers_from_cf(url)
         # Concat all reviews
