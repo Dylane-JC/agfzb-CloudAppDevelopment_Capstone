@@ -115,6 +115,6 @@ def get_dealer_details(request, dealer_id):
         # Get reviews of a dealer
         reviews = get_dealer_reviews_from_cf(url)
         # Concat all reviews
-        review_ = ' '.join([review.name for review in reviews])
+        revw = ' '.join([review.name for review in reviews])
         # Return a list of reviews
-        return HttpsResponse(review)
+        return HttpsResponse(revw)

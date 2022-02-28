@@ -90,7 +90,5 @@ class DealerReview:
         # Review id
         self.id = id
 
-
-
 if __name__ == "__main__":
     pass
