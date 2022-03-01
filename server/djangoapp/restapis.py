@@ -9,11 +9,14 @@ from requests.auth import HTTPBasicAuth
 def get_request(url, **kwargs):
     print(kwargs)
     print("GET from {} ".format(url))
-    try:
-        response = requests.get(url, headers={'Content-Type' : 'application/json'}, params=kwargs)
-    except:
-        # If any error occurs
-        print("Network exception occuered")
+    if api_key:
+        try:
+            response = requests.get(url, params=params, headers={'Content-Type' : 'application/json'}, auth=HTTPBasicAuth('', api_key), params=kwargs)
+        except:
+            # If any error occurs
+            print("Network exception occuered")
+    else:
+        requests.get(url, params=params)
     status_code = response.status_code
     print("With status{} ".format(status_code))
     json_data = json.loads(response.text)
@@ -67,6 +70,15 @@ def get_dealer_reviews_from_cf(url, **kwargs):
                                       car_year=review_doc["car_year"], 
                                       sentiment=review_doc["sentiment"], 
                                       id=review_doc["id"])
+            review_obj.sentiment = analyze_review_sentiments(review_obj.review)
             results.append(review_obj)
         
     return result
+
+def analyze_review_sentiments(dealerreview):
+    params = dict()
+    params["text"] = kwargs["text"]
+    params["version"] = kwargs["version"]
+    params["features"] = kwargs["features"]
+    params["return_analyzed_text"] = kwargs["return_analyzed_text"]
+    response = requests.get(url, params=params, headers={'Content-Type' : 'application/json'},auth=HTTPBasicAuth('apikey', api_key))
