@@ -117,4 +117,4 @@ def get_dealer_details(request, dealer_id):
         # Concat all reviews
         revw = ' '.join([review.name for review in reviews])
         # Return a list of reviews
-        return HttpsResponse(revw)
+        return HttpResponse(revw)

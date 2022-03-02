@@ -53,7 +53,7 @@ def get_dealers_from_cf(url, **kwargs):
 def get_dealer_reviews_from_cf(url, **kwargs):
     results = []
     # Call get_request with a URL parameter
-    json_result = get_request(url, dealerId=dealership)
+    json_result = get_request(url, dealerId=id)
     if json_result:
         # Get the row list in JSON as dealers
         reviews = json_result["doc"]
@@ -75,7 +75,7 @@ def get_dealer_reviews_from_cf(url, **kwargs):
             review_obj.sentiment = analyze_review_sentiments(review_obj.review)
             results.append(review_obj)
         
-    return result
+    return results
 
 def analyze_review_sentiments(dealerreview):
     get_request(url, **kwargs)
