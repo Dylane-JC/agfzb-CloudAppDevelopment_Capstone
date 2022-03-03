@@ -78,11 +78,15 @@ def get_dealer_reviews_from_cf(url, **kwargs):
     return results
 
 def analyze_review_sentiments(dealerreview):
-    get_request(url, **kwargs)
+    url = "https://eu-gb.functions.appdomain.cloud/api/v1/web/f685b25d-91a6-498c-833b-cab9cc0a36d0/api/review/"
+    api_key = "TcEHuCixPoEoR3VA6U3zBu82fozLidhmTo-ZNzjnjFfI"
     params = dict()
-    params["text"] = kwargs["text"]
-    params["version"] = kwargs["version"]
-    params["features"] = kwargs["features"]
-    params["return_analyzed_text"] = kwargs["return_analyzed_text"]
+    get_request('text')
+    get_request('version')
+    get_request('features')
+    get_request('return_analyzed_text')    
     response = requests.get(url, params=params, headers={'Content-Type' : 'application/json'},auth=HTTPBasicAuth('apikey', api_key))
     return response
+
+def post_request(url,json_payload, **kwards):
+    
