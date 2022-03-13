@@ -88,5 +88,20 @@ def analyze_review_sentiments(dealerreview):
     response = requests.get(url, params=params, headers={'Content-Type' : 'application/json'},auth=HTTPBasicAuth('apikey', api_key))
     return response
 
-def post_request(url,json_payload, **kwards):
-    
+def post_request(url, json_payload, **kwards):
+    print(kwargs)
+    print("GET from {} ".format(url))
+    json_data = {}
+    api_key = "TcEHuCixPoEoR3VA6U3zBu82fozLidhmTo-ZNzjnjFfI"
+    if api_key:
+        try:
+            response = requests.post(url, params=params, json=json_payload, headers={'Content-Type' : 'application/json'}, auth=HTTPBasicAuth('apikey', api_key))
+        except:
+            # If any error occurs
+            print("Network exception occuered")
+    else:
+        requests.post(url, params=params)
+        status_code = response.status_code
+        print("With status{} ".format(status_code))
+        json_data = json.loads(response.text)
+    return json_data    
