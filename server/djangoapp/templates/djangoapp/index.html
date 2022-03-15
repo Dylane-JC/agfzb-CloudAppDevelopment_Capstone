@@ -103,11 +103,11 @@
                     <tbody>
                         {% for dealer in dealerships %}
                         <tr>
-                        <td>{% dealer.id %}</td>
-                        <td>{% dealer.full_name %}</td>
-                        <td>{% dealer.city %}</td>
-                        <td>{% dealer.address %}</td>
-                        <td>{% dealer.state %}</td>
+                        <td>{{ dealer.id }}</td>
+                        <td>{{ dealer.full_name }}</td>
+                        <td>{{ dealer.city }}</td>
+                        <td>{{ dealer.address }}</td>
+                        <td>{{ dealer.state }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
