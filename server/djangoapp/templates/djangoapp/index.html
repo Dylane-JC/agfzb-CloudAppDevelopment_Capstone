@@ -94,19 +94,20 @@
                     <tr>
                         <th>ID</th>
                         <th>Dealer Name</th>
-                        <td>City</td>
-                        <td>Address</td>
-                        <td>Zip</td>
-                        <td>State</td>
+                        <th>City</th>
+                        <th>Address</th>
+                        <th>Zip</th>
+                        <th>State</th>
                     </tr>
                     </thead>
                     <tbody>
                         {% for dealer in dealerships %}
                         <tr>
                         <td>{{ dealer.id }}</td>
-                        <td>{{ dealer.full_name }}</td>
+                        <td>{{ dealer.short_name }}</td>
                         <td>{{ dealer.city }}</td>
                         <td>{{ dealer.address }}</td>
+                        <td>{{ dealer.zip }}</td>
                         <td>{{ dealer.state }}</td>
                         </tr>
                         {% endfor %}
