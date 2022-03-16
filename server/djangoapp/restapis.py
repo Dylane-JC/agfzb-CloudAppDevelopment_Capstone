@@ -11,17 +11,17 @@ def get_request(url, **kwargs):
     print("GET from {} ".format(url))
     json_data = {}
     api_key = "TcEHuCixPoEoR3VA6U3zBu82fozLidhmTo-ZNzjnjFfI"
-    if api_key:
-        try:
-            response = requests.get(url, params=params, headers={'Content-Type' : 'application/json'}, auth=HTTPBasicAuth('apikey', api_key))
-        except:
-            # If any error occurs
-            print("Network exception occuered")
-    else:
-        requests.get(url, params=params)
-        status_code = response.status_code
-        print("With status{} ".format(status_code))
-        json_data = json.loads(response.text)
+    response = requests.get(url, params=kwargs, headers={'Content-Type' : 'application/json'})
+    #if api_key:
+    try:
+        response = requests.get(url, params=kwargs, headers={'Content-Type' : 'application/json'}, auth=HTTPBasicAuth('apikey', api_key))
+    except:
+        # If any error occurs
+        print("Network exception occuered")
+
+    #status_code = response.status_code
+    #print("With status{} ".format(status_code))
+    json_data = json.loads(response.text)
     return json_data
 
 def get_dealers_from_cf(url, **kwargs):
