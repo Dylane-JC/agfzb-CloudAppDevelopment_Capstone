@@ -1,0 +1,75 @@
+{
+ "id": "d1f4609504272de2cba147f4c8276977",
+ "key": "d1f4609504272de2cba147f4c8276977",
+ "value": {
+  "rev": "3-80acaf260e14087db020a1f914c91282"
+ },
+ "doc": {
+  "_id": "d1f4609504272de2cba147f4c8276977",
+  "_rev": "3-80acaf260e14087db020a1f914c91282",
+  "id": 1,
+  "name": "Berkly Shepley",
+  "dealership": 15,
+  "review": "Total grid-enabled service-desk",
+  "purchase": true,
+  "purchase_date": "07/11/2020",
+  "car_make": "Audi",
+  "car_model": "A6",
+  "car_year": 2010
+ }
+}
+
+{
+    "id": "d1f4609504272de2cba147f4c8276d9e",
+    "key": "d1f4609504272de2cba147f4c8276d9e",
+    "value": {
+        "rev": "1-0cbc084ce570374a1d0c2653ceb254ad"
+    },
+    "doc": {
+        "_id": "d1f4609504272de2cba147f4c8276d9e",
+        "_rev": "1-0cbc084ce570374a1d0c2653ceb254ad",
+        "id": 2,
+        "name": "Gwenora Zettoi",
+        "dealership": 23,
+        "review": "Future-proofed foreground capability",
+        "purchase": true,
+        "purchase_date": "09/17/2020",
+        "car_make": "Pontiac",
+        "car_model": "Firebird",
+        "car_year": 1995
+    }
+}
+
+{
+    "id": "d1f4609504272de2cba147f4c8277dbb",
+    "key": "d1f4609504272de2cba147f4c8277dbb",
+    "value": {
+        "rev": "1-1677bbc642e9673d151d56614ad81963"
+    },
+    "doc": {
+        "_id": "d1f4609504272de2cba147f4c8277dbb",
+        "_rev": "1-1677bbc642e9673d151d56614ad81963",
+        "id": 4,
+        "name": "Iorgos Colley",
+        "dealership": 13,
+        "review": "Optional heuristic software",
+        "purchase": false
+    }
+}
+
+{
+    "id": "d1f4609504272de2cba147f4c8278024",
+    "key": "d1f4609504272de2cba147f4c8278024",
+    "value": {
+        "rev": "1-7e446087190b20656bad81aeab9242b5"
+    },
+    "doc": {
+        "_id": "d1f4609504272de2cba147f4c8278024",
+        "_rev": "1-7e446087190b20656bad81aeab9242b5",
+        "id": 5,
+        "name": "Kissee Noirel",
+        "dealership": 46,
+        "review": "Diverse client-server success",
+        "purchase": false
+    }
+}
