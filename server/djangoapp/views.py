@@ -112,18 +112,17 @@ def get_dealerships(request):
 def get_dealer_details(request, dealer_id):
     context = {}
     if request.method == "GET":
-        url = "https://eu-gb.functions.appdomain.cloud/api/v1/web/f685b25d-91a6-498c-833b-cab9cc0a36d0/api/review/"
+        url = "https://eu-gb.functions.appdomain.cloud/api/v1/web/f685b25d-91a6-498c-833b-cab9cc0a36d0/api/review"
         # Get reviews of a dealer
         reviews = get_dealer_reviews_from_cf(url)
+        context['reviews'] = reviews
         # Concat all reviews
         revw = ' '.join([review.name for review in reviews])
         revw = analyze_review_sentiments(reviews)
         # Return a list of reviews
-        return HttpResponse(revw)
+        return render(request, 'djangoapp/dealer_details.html', context)
 
 def add_review(request, dealer_id):
     if request.method == "POST" & request.user.is_authenticated:
         review = {'id':id, 'dealerahip':dealership, 'review':review}
         json_payload = {'review':review}
-        
-        
