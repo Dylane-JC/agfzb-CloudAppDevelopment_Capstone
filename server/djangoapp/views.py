@@ -123,6 +123,9 @@ def get_dealer_details(request, dealer_id):
         return render(request, 'djangoapp/dealer_details.html', context)
 
 def add_review(request, dealer_id):
-    if request.method == "POST" & request.user.is_authenticated:
+    if request.method == "GET" & request.user.is_authenticated:
+        
+
+    if request.method == "POST" 
         review = {'id':id, 'dealerahip':dealership, 'review':review}
         json_payload = {'review':review}
