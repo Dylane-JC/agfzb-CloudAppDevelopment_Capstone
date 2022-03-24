@@ -117,13 +117,13 @@ def get_dealer_details(request, dealer_id):
         reviews = get_dealer_reviews_from_cf(url)
         context['reviews'] = reviews
         # Concat all reviews
-        revw = ' '.join([review.name for review in reviews])
+        #revw = ' '.join([review.name for review in reviews])
         revw = analyze_review_sentiments(reviews)
         # Return a list of reviews
         return render(request, 'djangoapp/dealer_details.html', context)
 
 def add_review(request, dealer_id):
-    if request.method == "GET" & request.user.is_authenticated:
+    if request.method == "GET" & request.user.is_authenticated:    
         
 
     if request.method == "POST" 
