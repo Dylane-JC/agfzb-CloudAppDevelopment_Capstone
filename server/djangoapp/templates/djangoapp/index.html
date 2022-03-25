@@ -38,7 +38,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'djangoapp:logout' %}" style="color:red">Sign out</a>
-                        <a href="{% url 'djangoapp:add_review' %}">Add review</a>
+                       
                     </li>
                 </ul>
             </div>
@@ -89,16 +89,16 @@
     <div class="container-fluid"><br><br>
         <h2>Dealer table</h2>
         <div class="row"><br><br>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <table class="table" id = "table" data-filter-control="true">
-                    <thead class="table-dark">
+                    <thead class="table">
                     <tr>
                         <th data-field="id">ID</th>
                         <th>Dealer Name</th>
                         <th>City</th>
                         <th>Address</th>
                         <th>Zip</th>
-                        <th data-filter-control="select">State</th>
+                        <th data-field="state" data-filter-control="select">State</th>
                     </tr>
                     </thead>
                     <tbody>

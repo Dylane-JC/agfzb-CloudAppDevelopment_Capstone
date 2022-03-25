@@ -99,7 +99,7 @@ def registration_request(request):
 def get_dealerships(request):
     context = {}
     if request.method == "GET":
-        url = "https://eu-gb.functions.appdomain.cloud/api/v1/web/f685b25d-91a6-498c-833b-cab9cc0a36d0/api/delearship"
+        url = "https://eu-gb.functions.appdomain.cloud/api/v1/web/f685b25d-91a6-498c-833b-cab9cc0a36d0/api/delearship/"
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
         context['dealerships'] = dealerships
@@ -123,9 +123,29 @@ def get_dealer_details(request, dealer_id):
         return render(request, 'djangoapp/dealer_details.html', context)
 
 def add_review(request, dealer_id):
-    if request.method == "GET" & request.user.is_authenticated:    
-        
+    # empty dict
+    context={}
+    # If browser send the GET method (http) and the user is authenticated:
+    if request.method == "GET" & request.user.is_authenticated:
+        url="https://eu-gb.functions.appdomain.cloud/api/v1/web/f685b25d-91a6-498c-833b-cab9cc0a36d0/api/review"    
+        # Recovering the link of the url
+        cars = get_dealer_reviews_from_cf(url)
+        context["cars"] = cars
+        # Return a list of reviews
+        return render(request, 'djangoapp/dealer_details.html', context)
+    
+    else:
+        return redirect('djangoapp:index')
 
-    if request.method == "POST" 
+    if request.method == "POST" & request.user.is_authenticated:
+        content = request.POST["content"]
+        purchasecheck = request.POST["purchasecheck"]
+        car = reqest.POST["car"]
+        purchasedate = request.POST["purchasedate"]
+
         review = {'id':id, 'dealerahip':dealership, 'review':review}
         json_payload = {'review':review}
+        return redirect('djangoapp/dealer_details.html', dealer_id=dealer_id)
+    
+    else:
+        return redirect('djangoapp:dealer_details')

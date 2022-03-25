@@ -1,6 +1,7 @@
 import requests
 import json
 from .models import CarDealer
+from .models import DealerReview
 from requests.auth import HTTPBasicAuth
 
 # Create a `get_request` to make HTTP GET requests

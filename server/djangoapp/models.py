@@ -89,6 +89,8 @@ class DealerReview:
         self.sentiment = sentiment
         # Review id
         self.id = id
+    def __str__(self):
+        return self.review
 
 if __name__ == "__main__":
     pass
