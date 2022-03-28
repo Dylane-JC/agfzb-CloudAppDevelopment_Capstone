@@ -9,7 +9,7 @@ class CarMake(models.Model):
 # - Description
     description = models.CharField(max_length=25)
 # - Any other fields you would like to include in car make model
-    year = models.DateField(max_length=6)
+    year = models.DateField(max_length=6) 
     color = models.CharField(max_length=25)
 # - __str__ method to print a car make object
     def __str__(self):
@@ -69,7 +69,7 @@ class CarDealer:
 
 # <HINT> Create a plain Python class `DealerReview` to hold review data
 class DealerReview:
-    def __init__(self, dealership, name, purchase, review, purchase_date, car_make, car_model, car_year, sentiment, id):
+    def __init__(self, dealership, name, purchase, review, purchase_date, car_make, car_model, car_year, id):
         self.dealership = dealership
         # Review name
         self.name = name
@@ -86,7 +86,7 @@ class DealerReview:
         # Car year
         self.car_year = car_year
         # Seniment
-        self.sentiment = sentiment
+        #self.sentiment = sentiment
         # Review id
         self.id = id
     def __str__(self):
