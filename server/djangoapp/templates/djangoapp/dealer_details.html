@@ -19,19 +19,19 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" style="background : #68abdb; color:#FFFFFF; border-radius :50px;"
-                                aria-current="page" href="/djangoapp">Home</a>
+                                aria-current="page" href="{% djangoapp}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about">About us</a>
+                            <a class="nav-link" href="{% url 'djangoapp:about' %}">About us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact">Contact us</a>
+                            <a class="nav-link" href="{% url 'djangoapp:contact' %}">Contact us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'djangoapp:logout' %}" style="color:red">Sign out</a>                            
                         </li>
                         <li class = "nav-item">
-                            <a class="nav-link" href="{% url 'djangoapp:add_review'  %}">Add review</a>
+                            <a class="nav-link" href="{% url 'djangoapp:add_review' %}">Add review</a>
                         </li>
                     </ul>
                 </div>
@@ -79,7 +79,7 @@
         {% endif %}
         <br><br><br>
         <div class = "container">  
-            <div class = "col-lg-6oo">
+            <div class = "col-lg-6">
             {% for review in reviews %}
             <div class="cad mb-3" style="max-width:px; border-radius:0 50px 50px 0">
                 <div class="row g-0">

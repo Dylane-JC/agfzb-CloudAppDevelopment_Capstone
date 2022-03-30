@@ -121,17 +121,17 @@ def get_dealer_details(request, dealer_id):
         # Return a list of reviews
         return render(request, 'djangoapp/dealer_details.html', context)
 
-def add_review(request, dealer_id):
+def add_review(request):
     # empty dict
     context={}
     # If browser send the GET method (http) and the user is authenticated:
-    if request.method == "GET" & request.user.is_authenticated:
+    if request.method == "GET": #& request.user.is_authenticated:
         url="https://eu-gb.functions.appdomain.cloud/api/v1/web/f685b25d-91a6-498c-833b-cab9cc0a36d0/api/review"    
         # Recovering the link of the url
         cars = get_dealer_reviews_from_cf(url)
         context["cars"] = cars
         # Return a list of reviews
-        return render(request, 'djangoapp/dealer_details.html', context)
+        return render(request, 'djangoapp/add_review.html', context)
     
     else:
         return redirect('djangoapp:index')
