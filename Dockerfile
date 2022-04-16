@@ -13,7 +13,7 @@ RUN apt-get update \
         && apt-get install -y netcat
 RUN pip install gunicorn==20.0.4 
 RUN pip install Pillow==8.0.1
-RUN pip install requests-2.27.1
+RUN pip install requests==2.27.1
 RUN pip install Django==4.0.3
 
 
