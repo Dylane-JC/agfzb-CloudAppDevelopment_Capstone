@@ -6,7 +6,7 @@ ENV PYTHONWRITEBYTECODE 1
 RUN apt-get update \
     && apt-get install -y netcat
 
-ENV APP=/server
+ENV APP=/
 
 # Change the workdir.
 WORKDIR $APP
@@ -21,7 +21,7 @@ COPY . $APP
 
 EXPOSE 8000
 
-RUN chmod +x /server/entrypoint.sh
-ENTRYPOINT ["/server/entrypoint.sh"]
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "djangobackend.wsgi"]
