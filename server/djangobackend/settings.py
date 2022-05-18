@@ -13,8 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+#BASE_DIR = Path(file).resolve().parent.parent
+BASE_DIR = BASE_DIR/server
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -27,8 +27,8 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000','localhost', 'localhost:8000', 'cloudapp15.us-south.cf.appdomain.cloud', 'dylanebang1.eu-gb.cf.appdomain.cloud', 'https://dylanebang1-8000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
-
+ALLOWED_HOSTS = ['localhost', 'localhost:8000', 'dylanebang1.eu-gb.cf.appdomain.cloud', 'https://dylanebang1-8000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
+CSRF_TRUSTED_ORIGINS = ['https://dylanebang1-8000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/']
 
 # Application definition
 
@@ -125,4 +125,3 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
 MEDIA_URL = '/media/'
-CSRF_TRUSTED_ORIGINS = ['127.0.0.1:8000','https://dylanebang1-8000.theiadocker-2-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/']
