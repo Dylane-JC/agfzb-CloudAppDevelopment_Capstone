@@ -1,10 +1,10 @@
   applications:
-  - name: dealmarket
+  - name: dealership
     routes:
       - route: dylanebang1.eu-gb.cf.appdomain.cloud
     memory: 128M
     buildpack: python_buildpack
-  - name: dealmarket-nginx
+  - name: dealership-nginx
     routes:
       - route: dylanebang1.eu-gb.cf.appdomain.cloud/static
     memory: 128M
